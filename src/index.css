@@ -1,3 +1,16 @@
+/* -------------------------------------------------------------------------- */
+/*                                    FONTS                                   */
+/* -------------------------------------------------------------------------- */
+
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;400;600&display=swap");
+
+@font-face {
+  font-family: "vogamedium";
+  src: url("./assets/fonts/voga-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -45,8 +58,13 @@ body {
 
 /* Set core body defaults */
 body {
-  color: hsl(var(--primary-color));
-  font-family: var(--body-font);
+  @apply text-body-color;
+  background: linear-gradient(
+    160deg,
+    rgba(38, 37, 44, 1) 0%,
+    rgba(24, 24, 32, 1) 50%,
+    rgba(17, 16, 24, 1) 100%
+  );
   text-rendering: optimizeSpeed;
   line-height: 1.5;
 }
@@ -99,3 +117,33 @@ select {
 /* -------------------------------------------------------------------------- */
 /*                                 COMPONENTS                                 */
 /* -------------------------------------------------------------------------- */
+
+/* Card */
+.card__wrapper {
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(38, 37, 44, 1) 0%,
+    rgba(24, 24, 32, 1) 50%,
+    rgba(17, 16, 24, 1) 100%
+  );
+  box-shadow: 10px 10px 40px 0 rgba(17, 16, 24, 1);
+}
+
+/* Image */
+.card__image > img {
+  filter: drop-shadow(2px 14px 20px #111018);
+  line-height: 0.9;
+  width: min(400px, 50%);
+}
+
+/* Title */
+.card__title {
+  font-size: clamp(3rem, 7vw, 6rem);
+}
+
+.card__title > span {
+  @apply bg-gradient-to-tr from-primary to-secondary;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
